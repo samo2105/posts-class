@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<h1>Posts</h1>
+
+
+<% @posts.each_slice(3) do |posts| %>
+<div class="card-deck mb-3">
+  <% posts.each do |post| %>
+  <div class="card">
+    <%= image_tag(post.photo_url, class: "card-img-top", alt: 'Photo') %>
+    <div class="card-body">
+      <h5 class="card-title"><%= post.user %></h5>
+      <div class="card-text">
+        <p><%= post.content %></p>
+        <%= link_to 'Editar', edit_post_path(post), class: 'btn btn-success'%>
+        <%= link_to 'Ver', post, class: 'btn btn-success'%>
+        <p>Likes: <span class="<%= post.id %>-like"><%= post.likes %></span> 
+        <%= link_to image_tag('heart-solid.svg', alt: 'poop', class: 'like btn btn-danger'), like_post_path(post), method: :patch, remote: true %> </p>
+        <p>Dislikes: <span class="<%= post.id %>-dislike"><%= post.dislike %></span> 
+          <%= link_to image_tag('poo-solid.svg', alt: 'poop', class: 'dislike btn btn-warning'), dislike_post_path(post), method: :patch, remote: true %>
+        </p>
+      </div>
+      <p class="card-text"><small class="text-muted"><%= post.created_at.strftime("%F") %> / <%= time_ago_in_words(post.created_at) %></small></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+<br>
+</div>

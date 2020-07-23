@@ -1,0 +1,15 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.like, .dislike {
+  width: 50px;
+}
+
+.like {
+  color: red
+}
+
+.dislike {
+  color: purple
+}

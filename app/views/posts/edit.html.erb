@@ -1,0 +1,8 @@
+
+<div class="container">
+<h1 class="text-center">Editing Post</h1>
+  <%= render 'form', post: @post %>
+  <div class="mt-3">
+  <%= link_to 'Show', @post, class: 'btn btn-success col-sm-3' %>
+  <%= link_to 'Back', posts_path, class: 'btn btn-warning col-sm-3' %>
+</div>
